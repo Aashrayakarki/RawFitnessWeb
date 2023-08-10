@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link th:href="@{~/Css/assets/style.css}" rel="stylesheet"/>
+    <script th:src="@{~/Js/home.js}"></script>
+</head>
+<body>
+   <div class="Container">
+    <div class="contents">
+        <form th:action="@{/login}" th:method="post" class="login_form">
+            <div>
+                <h1 class="login_title">
+                    <span>Welcome</span> Back
+                </h1>
+                <p class="logindesp">
+                    Welcome! Please Login
+                </p>
+            </div>
+            <div> 
+                <div class="logininputs">
+                    <div>
+                        <label  class="loginlabel">Email</label>
+                        <input name="email" type="email" placeholder="Enter your email" required class="login-inputs">
+                    </div>
+                    <div>
+                        <label  class="loginlabel">Password</label>
+                        
+                        <div class="loginbox ">
+                            <input name="password" type="password" placeholder="Enter your password" required class="login-inputs" id="input-pass">
+                            <i class="ri-eye-off-line login-eye" id="input-icon"></i>
+                        </div>    
+                    </div>
+                </div>
+                <div class="login_check">
+                    <input type="checkbox" class="login_check-input">
+                    <label class="login_check_label">Remember me</label>
+                </div>
+            </div>
+            <div>
+                <div class="login_buttons">
+                    <button type="submit" th:onclick="validateform()" class="login-button">Login</button>
+                    <button type="button" id="registerbtnssb" th:onclick="registerbtn()" class="login-button signup">Signup</button>
+                </div>
+<!--                <a href="#" class="login_forgot">Forgot Password?</a>-->
+            </div>
+        </form>
+    </div>
+   </div>
+    
+</body>
+</html>

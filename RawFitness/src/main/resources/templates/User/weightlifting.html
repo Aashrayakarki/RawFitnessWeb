@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{~/Css/assets/weightlifting.css}">
+    <script th:src="@{~/Js/home.js}"></script>
+
+    <title>WeightLifting</title>
+    <style>
+        .tab {
+            overflow: hidden;
+            /* border: 1px solid #ccc; */
+            background-color: #6b6a6a;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
+</head>
+<body>    
+    
+<div class="contents" id="myform">
+       
+        <form th:method="post" th:action="@{/saveMembership}" th:object="${member}" class="login_form">
+            <input hidden th:value="${userdata.id}"  name="user_id"  type="text"  required class="pinputs">
+<!--            <input  th:value="${up.id}"  name="id"  type="text"  required class="pinputs">-->
+
+            <div>
+                <h1 class="login_title">
+                    <span>Membership Registration</span>
+                </h1>
+                <p class="logindesp">
+                    Join Us!
+                </p>
+            </div>
+            <div> 
+                <div class="logininputs">
+
+                    <div class="apply">
+                        <label >Applying for :</label>
+                        <select th:field="*{category_id}" name="category" required class="pinputs">
+                            <option th:value="${categories}" selected>Select Category</option>
+                            <th:block th:each="cat : ${categories}">
+                                <option th:value="${cat.id}" th:text="${cat.category}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <div class="period" th:each="price:${priceTable}">
+                        <label>
+                            <input type="checkbox" class="checkboxes" th:field="*{price_id}" th:value="${price.id}" onclick="fn()">
+                            <span th:text="${price.duration}"></span>
+                        </label>
+                    </div>
+                </div>
+               
+            </div>
+            <div>
+                <div class="login_buttons">
+                    <button class="login-button" type="submit" th:onclick="print()">Register</button>
+                    <button class="login-button" th:onclick="openForm()" type="reset">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    
+    
+        <div class="container" >
+        <header>
+        <nav>
+            <h2 class="logo" > <a href=""> Power <span>Up</span></a></h2>
+            <ul >
+                <li>
+                    <button class="items">
+                       <a th:href="@{/homepage}">Home</a>
+                    </button>
+                </li>
+                 <li >
+                    <button class="items">
+                        <a th:href="@{/homepage}">Contacts</a>
+                    </button>
+                </li>
+                <li>
+                    <button class="items">
+                        <a th:href="@{/homepage}">Package&Plans</a>
+                    </button>
+                </li>
+                <li>
+                    <button class="items">
+                        <a th:href="@{/homepage}">About Us</a>
+                    </button>
+                </li>
+
+            </ul>
+            <div class="rbtn">
+                <button  class="Register-btn">
+                    <a th:href="@{~/signup/list/}+${userdata.id}" >Profile</a>
+                </button>
+            </div>
+            <i class="ri-menu-line"></i>
+        </nav>
+        </header>
+
+
+            <div class="body-class" >
+                <div class="tab">
+                    <button class="tablinks active" onclick="openTab(event, 'Tab1')">WeightLifting</button>
+                    <button class="tablinks" onclick="openTab(event, 'Tab2')">Boxing</button>
+                    <button class="tablinks" onclick="openTab(event, 'Tab3')">Calisthenics</button>
+                </div>
+
+                <div id="Tab1" class="tabcontent">
+                    <div class="head">
+                    </div>
+                    <div class="package-sec">
+                        <div class="area">
+                            <div class="img-sec">
+                                <span class="ss"></span>
+                            </div>
+                            <div >
+                                <p>Learn and master the art of weightlifting with professional trainers.<br>Give us a chance and find out what your body is capable of.</p>
+                            </div>
+                            <div class="divtable">
+                                <table class="table ">
+                                    <thead class="thead">
+                                    <tr>
+                                        <th>Duration</th>
+                                        <th>Price</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="price:${priceTable}">
+                                        <td th:text="${price.duration}">
+                                        <td th:text="'Rs. '+${price.price}">
+
+                                        </td>
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div class="but" >
+                            <button class="assign" id="ass" onclick="openForm()">Join Us</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Tab2" class="tabcontent">
+                    <div class="head">
+                    </div>
+                    <div class="package-sec">
+                        <div class="area">
+                            <div class="img-sec-boxing">
+                                <span class="ss"></span>
+                            </div>
+                            <div >
+                                <p>Step into the ring and unleash your inner fighter
+                                    with our high-energy boxing classes.</p>
+                            </div>
+                            <div class="divtable">
+                                <table class="table ">
+                                    <thead class="thead">
+                                    <tr>
+                                        <th>Duration</th>
+                                        <th>Price</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="price:${priceTable}">
+                                        <td th:text="${price.duration}">
+                                        <td th:text="'Rs. '+${price.price}">
+
+                                    </td>
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div class="but" >
+                            <button class="assign" id="ass" onclick="openForm()">Join Us</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="Tab3" class="tabcontent">
+                    <div class="head">
+                    </div>
+                    <div class="package-sec">
+                        <div class="area">
+                            <div class="img-sec-calisthenics">
+                                <span class="ss"></span>
+                            </div>
+                            <div >
+                                <p>Unleash your inner athlete with Calisthenics! <br/>
+                                    Get fit, build strength, and improve flexibility with bodyweight exercises.</p>                            </div>
+                            <div class="divtable">
+                                <table class="table ">
+                                    <thead class="thead">
+                                    <tr>
+                                        <th>Duration</th>
+                                        <th>Price</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="price:${priceTable}">
+                                        <td th:text="${price.duration}">
+                                        <td th:text="'Rs. '+${price.price}">
+
+                                        </td>
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div class="but" >
+                            <button class="assign" id="ass" onclick="openForm()">Join Us</button>
+                        </div>
+                    </div>
+
+z
+
+                </div>
+    </div>
+        </div>
+
+</body>
+<script>
+    window.onload = function() {
+        // Activate the first tab on page load
+        document.getElementsByClassName("tablinks")[0].click();
+    }
+
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+</html>

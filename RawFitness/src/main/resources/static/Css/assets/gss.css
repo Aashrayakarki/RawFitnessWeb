@@ -1,0 +1,603 @@
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Josefin Sans',sans-serif;
+}
+#bgimg{
+    z-index:0;
+    /* background-image: url(../assets/pexels-estudio-polaroid-3112004.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* adjust height as needed */
+    width: 100%; /* adjust width as needed */
+    position: absolute;
+}
+#bgimg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5; /* adjust opacity as needed */
+  }
+
+body{
+    /* background-color: black; */
+    /* background-image: url(../assets/pexels-estudio-polaroid-3112004.jpg);   */
+    background-color: black;
+    /* position: relative; */
+    /* z-index: 1; */
+}
+.ri-menu-line{
+    display: none;
+} 
+header{
+    width: 100%;
+    font-size: 18px;
+    /* margin-bottom: 20%; */
+    padding: 30px 5%;
+    top: 0;
+    background-color: rgba(19, 15, 15, .8);
+    /* left: 0;
+    right: 0;  */
+    position: sticky;
+    align-items: center;
+    border-radius: 0.5rem;
+    /* justify-content: space-between; */
+    z-index: 1;
+    
+}
+nav{
+    
+    align-items: center;
+    padding-top: 0.2rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0.5rem 0.5rem; */
+    /* background-color: rgba(28, 28, 31, 0.9); */
+}
+.logo{
+    color: rgb(32, 32, 116); 
+}
+.logo a{
+    text-decoration: none;
+    background-color: transparent;
+}
+nav span{
+    color: red;
+    background-color: transparent;
+}
+
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 12px 20px;
+}
+
+nav ul li a {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    transition: ease-out .7s; 
+}
+
+nav ul li:hover{
+    border-color: crimson ;
+    transition: .7s ease-out ;
+}
+nav button a{
+    text-decoration: none;
+    font-size: 18px;
+    color: white; 
+}
+
+
+.items{
+    color: white;
+    background: transparent; 
+    font-weight: bold;
+    font-size: 15px;
+    border-color: transparent;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: ease-out .7s;
+}
+
+.items:hover{
+    border-color: crimson;
+    border-top: 0px solid transparent ;
+    border-bottom: 0px solid transparent;
+    /* box-shadow: 0px 0px 42px crimson;
+    background: crimson; */
+    transition:  all .7s;
+}
+
+
+.Register-btn {
+    border: 1px;
+    border-radius: 2rem;
+    background: crimson;
+    font-weight: bold;
+    font-size: 15px;
+    transition: ease-out .7s;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.Register-btn:hover{
+    box-shadow: 0px 0px 42px crimson;
+    transition: .7s ease-out ;
+}
+
+
+
+main{
+    margin-top: 20%;
+    position: relative;
+    align-items: center;
+    z-index: 0;
+}
+/* main div .clock {
+    display: flex;
+    align-items: center;
+    flex-basis: 100px;
+    color: rgb(0, 0, 0);
+    justify-content: space-evenly;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 30px;
+    font-family: Verdana, Tahoma,  sans-serif;
+    font-weight: bold;
+} */
+main div .cc{
+    display: flex;
+    align-items: center;
+    flex-basis: 100px;
+    color: rgb(0, 0, 0);
+    justify-content: space-evenly;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 30px;
+    font-family: Verdana, Tahoma,  sans-serif;
+    font-weight: bold;
+}
+
+main div .cc p{
+    display: inline;
+    justify-content: space-evenly;
+    z-index: 0;
+    color: rgb(248, 241, 241);
+}
+
+.NY{
+    /* flex-basis: 100px; */
+    font-size: 30px;
+    font-weight: bold;
+    justify-content: space-evenly;
+    display: grid;
+}
+.NY span{
+    color: rgb(129, 21, 21);
+}
+
+.clock{
+    align-items: center;
+    border-radius: 2rem;
+    margin-left: 7%;
+    margin-right: 7%;
+    background-color: hsla(244, 16%, 92%, .3);
+    border: 2px solid rgba(226, 226, 230, 0.3);
+}
+
+main .programs span{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+}
+
+main .programs {
+    margin-top: 2%;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    z-index: 0;
+}
+main .programs .program_span{
+    
+    color: blanchedalmond;
+    background-color: rgb(10, 10, 17);
+    font-size: 26px;
+    font-weight: bold;
+}
+
+
+
+.content{
+    color: rgb(201, 34, 34);
+    font-weight: bold;
+    font-size: 15px;
+    border: transparent;
+    padding: 12px 20px 150px;
+    /* text-decoration: none; */
+    transition: ease-out .7s;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 12px;
+    
+}
+main .programs .content span{
+    color: rgb(248, 248, 248);
+    padding-bottom: 2rem;
+    z-index: 2;
+}
+
+main .programs .content a{
+    text-decoration: none;
+    color:crimson;
+}
+
+
+.content .weightlifting{
+    padding: 12px 20px 200px;
+    cursor: pointer;
+    transition: 0.5s;
+    width: 335px;
+    height: 335px;
+    /* box-shadow: 0px 0px 2px 2px rgba(218, 178, 208,0.3); */
+}
+.weightlifting span {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .weightlifting p {
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+
+.content .boxing{
+    padding: 12px 20px 200px;
+    cursor: pointer;
+    transition: 0.5s;
+    width: 335px;
+    height: 335px;
+}
+.boxing span {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .boxing p {
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+.content .calisthenics{
+    padding: 12px 20px 200px;
+    cursor: pointer;
+    transition: 0.5s;
+    width: 335px;
+    height: 335px;
+}
+.calisthenics span {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .calisthenics p {
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+.content .divimg{
+    width: 335px;
+    height: 335px;
+    position: absolute;
+    z-index: -1;
+    transition: 0.5s;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+    
+
+
+
+main .programs .content .weightlifting:hover{
+   transform: scale(1.1);
+   color: white;
+   box-shadow: none;
+}
+
+main .programs .content .weightlifting:hover span{
+    color: rgb(0, 0, 0);
+}
+
+main .programs .content .boxing:hover{
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+}
+main .programs .content .boxing:hover span{
+    color: rgb(255, 0, 0);
+}
+
+main .programs .content .calisthenics:hover{
+    transform: scale(1.1);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+ }
+ main .programs .content .calisthenics:hover span{
+    color: rgb(82, 76, 76);
+}
+
+footer{
+    width: 100%;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    align-items: center;
+    z-index: 0;
+    position: relative;
+}
+footer .transformation{
+    display: flex;
+    justify-content: space-evenly;
+}
+footer .transformation p{
+    color: white;
+    font-size: 18px;
+    margin-top: 20%;
+    text-align: center;
+    width: 50%;
+}
+
+footer .about span{
+    color: rgb(129, 21, 21);
+    font-size: 26px;
+    font-weight: bold;
+}
+footer .about{
+    font-size: 18px;
+}
+
+footer .top{
+    background-color: rgb(41, 39, 39); 
+    padding-bottom: 10%;
+}
+footer .top span{
+    color: rgb(74, 8, 255);
+    font-size: 26px;
+    font-weight: bold;
+}
+footer .top p{
+    font-size: 18px;
+    text-align: center;
+}
+
+footer .bottom{
+    color: rgb(240, 231, 231);
+    text-decoration: none;
+} 
+footer .bottom a {
+    text-decoration: none;
+    color: red;
+} 
+
+footer .bottom a span{
+    color: rgb(32, 32, 116);
+    text-decoration: none;
+}
+
+.profile-body span{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    background-color: black;
+}
+
+.profile-body{
+    justify-content: center;
+    color: white;
+    background-color: black;
+    
+}
+.profile-body .profile{
+    display: grid;
+    position: relative;
+    justify-content: center;
+    padding: 12px 16px;
+}
+.profile-body .profile .info .plabel{
+    display: block;
+    color: rgb(143, 142, 142);
+    font-size: large;
+    font-weight: 500;
+    margin-bottom: .25rem;
+}
+.pinputs{
+    width: 100%;
+    padding: 14px 12px ;
+    background-color: rgba(233, 232, 240, 0.3);
+    border: 1px solid rgb(218, 178, 208); 
+    border-radius: 6px;
+    font-size: medium;
+    font-weight: 500;
+    transition: border .4s;
+    outline: none;
+}
+
+.profilebtn{
+    padding: 14px 6rem ;
+    border-radius: 6px;
+    border: 2px;
+    color: rgb(255, 255, 255);
+    font-size: medium;
+    font-weight: 500;
+    background-color: rgb(129, 21, 21);
+    margin-top: 1rem;  
+    cursor: pointer;
+    transition: .4s ease-out;
+}
+.profilebtn:first-child{
+    background-color: gray;
+}
+
+.admin-body span{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    background-color: black;
+}
+
+.admin-body{
+    justify-content: center;
+    color: white;
+    background-color: black;
+    
+}
+.admin-body .admin{
+    display: grid;
+    position: relative;
+    justify-content: center;
+    padding: 12px 16px;
+}
+
+.adminbtn{
+    padding: 14px 6rem ;
+    border-radius: 6px;
+    border: 2px;
+    color: rgb(255, 255, 255);
+    font-size: medium;
+    font-weight: 500;
+    background-color: rgb(129, 21, 21);
+    margin-top: 1rem;  
+    cursor: pointer;
+    transition: .4s ease-out;
+}
+.adminbtn:first-child{
+    background-color: gray;
+}
+.about span{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    /*background-color: black;*/
+}
+.about{
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding-bottom: 12%;
+    background-color: black;
+}
+
+.top span{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+}
+
+.top{
+    text-align:center;
+    padding-bottom: 12%;
+    background-color: black;
+}
+
+/* -------- Category css -------- */
+.category{
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+/* .category */
+
+/* @media screen and (max-width:600px) {
+    nav ul li a,.items,.rbtn{
+        display: none;
+    }
+    .ri-menu-line{
+        display: block;
+    }
+    main div p{
+        font-size: 1.2rem;
+        color: black;  
+    }
+    main div .cc{
+        font-size: 1.2rem;
+    }
+    main div .NY{
+        font-size: 1.5rem;
+    }
+} */
+
+
+.img{
+    width: 426px;
+    height: 578px;
+    /* object-fit: cover; */
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: dimgrey;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}

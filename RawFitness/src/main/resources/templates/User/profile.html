@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" cozntent="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{~/Css/assets/gss.css}">
+    <link rel="stylesheet" th:href="@{~/Css/assets/gss-responsive.css}">
+
+    <script th:src="@{~/Js/home.js}"></script>
+    <script src="https://kit.fontawesome.com/e3db4c63f8.js" crossorigin="anonymous"></script>
+    <title>Profile</title>
+</head>
+<body>
+    <header>
+        <nav >
+            <h2 class="logo" > <a href=""> Raw <span>Fitness</span></a></h2>
+            <ul >
+                <li>
+                    <button class="items">
+                       <a th:href="@{/homepage}">Home</a>
+                    </button>
+                </li>
+                 <li >
+                    <button class="items">
+                        <a th:href="@{/homepage}">Contacts</a>
+                    </button>
+                </li>
+                <li>
+                    <button class="items">
+                        <a th:href="@{/homepage}">Package&Plans</a>
+                    </button>
+                </li>
+                <li>
+                    <button class="items">
+                        <a th:href="@{/homepage}">About Us</a>
+                    </button>
+                </li>
+            </ul>
+            <div class="rbtn">
+                <button  class="Register-btn">
+                    <a th:href="@{/logout}">Logout</a>
+                </button>
+            </div>
+            <i class="ri-menu-line"></i>
+        </nav>
+    </header>
+
+    <div class="profile-body">
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'Tab1')">Profile</button>
+            <button class="tablinks" onclick="openTab(event, 'Tab2')">Membership</button>
+        </div>
+        <div id="Tab1" class="tabcontent" th:style="${tab1Active ? '' : 'display:none;'}">
+            <h3>Profile</h3>
+            <form class="profile" th:action="@{/signup/update}" th:object="${update}" method="post">
+                <input hidden th:value="${userList.id}" th:field="*{id}" name="id">
+                <div class="info">
+                    <div>
+                        <label  class="plabel">Full Name</label>
+                        <input type="text" th:value="${userList.fullName}" th:field="*{fullName}" name="fullName"  required class="pinputs">
+                    </div>
+                    <div>
+                        <label class="plabel">Email</label>
+                        <input type="email" th:value="${userList.email}" th:field="*{email}" name="email"  required class="pinputs">
+                    </div>
+
+                </div>
+                <div>
+                    <button class="profilebtn">Update</button>
+
+                    <a th:href="@{~/signup/deleteAccount/}+${userList.id}">
+                        Delete Account?
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <div id="Tab2" class="tabcontent" th:style="${tab2Active ? '' : 'display:none;'}">
+            <h3>Membership</h3>
+            <form class="profile" th:action="@{/signup/updateMember}" th:object="${memberUpdate}" method="post">
+                <input hidden th:value="${members.id}" name="id">
+                <input hidden th:value="${members.user_id.id}"  name="user_id">
+
+                <div class="info">
+                    <div>
+                        <label class="plabel">Membership for</label>
+                        <input type="text"  th:value="${members.category_id.category}"  name="category" required class="pinputs">
+                        <select th:field="*{category_id}" required class="pinputs">
+                            <option th:value="${members.category_id}" selected disabled> </option>
+                            <option th:each="cat : ${categories}"
+                                    th:value="${cat.id}"
+                                    th:text="${cat.category}"
+                                    th:selected="${cat.id == members.category_id}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="plabel">Duration</label>
+<!--                        <input type="text"  th:value="${members.price_id.duration}"  th:field="*{price_id}" required class="pinputs">-->
+                        <select th:field="*{price_id}" required class="pinputs">
+                            <option th:value="${members.price_id}" selected disabled> </option>
+                            <option th:each="price : ${duration}"
+                                    th:value="${price.id}"
+                                    th:text="${price.duration}"
+                                    th:selected="${price.id == members.price_id}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+
+                    <button class="profilebtn">Update</button>
+                    <a th:href="@{~/signup/delete/}+${members.id}">
+                    Delete
+                    </a>
+
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script >
+    window.onload = function() {
+        // Activate the first tab on page load
+        document.getElementsByClassName("tablinks")[0].click();
+    }
+
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+</html>

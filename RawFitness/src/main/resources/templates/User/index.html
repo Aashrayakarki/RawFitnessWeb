@@ -1,0 +1,15 @@
+
+
+
+
+<form th:action="@{/user/saveComment}" th:object="${comment}" th:method="post" >
+    <input type="text" hidden="hidden" name="user_id"  th:value="${info.id}">  <br>
+    <input type="text" hidden="hidden" name="product_id"  th:value="${productdata.id}">  <br>
+    <div class="review">
+        <h2>Reviews</h2>
+        <textarea name="review" id="comment" cols="90" rows="10" th:field="*{comment}"> </textarea> <br>
+        <input type="submit" value="Post Comment" >
+        <input type="reset" value="Clear">
+    </div>
+</form>
+

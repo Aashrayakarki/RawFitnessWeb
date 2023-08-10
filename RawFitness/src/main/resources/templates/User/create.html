@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{~/Css/assets/gss.css}">
+    <script src="Js/timer.js"></script>
+    <script src="../Html_daily/Js/home.js"></script>
+    <script src="https://kit.fontawesome.com/e3db4c63f8.js" crossorigin="anonymous"></script>
+    <title>Profile</title>
+    <style>
+        .price-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .price-form label {
+            font-weight: bold;
+        }
+
+        .price-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .price-form button {
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        .price-form .btn-secondary {
+            margin-top: 20px;
+        }
+        .price-form button {
+            margin-top: 20px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .price-form button:hover {
+            background-color: #0056b3;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <h2 class="logo" > <a href=""> Power <span>Up</span></a></h2>
+        <ul >
+            <li>
+                <button class="items">
+                    <a th:href="@{/homepage}">Home</a>
+                </button>
+            </li>
+            <li >
+                <button class="items">
+                    <a th:href="@{/homepage}">Contacts</a>
+                </button>
+            </li>
+            <li>
+                <button class="items">
+                    <a th:href="@{/homepage}">Package&Plans</a>
+                </button>
+            </li>
+            <li>
+                <button class="items">
+                    <a th:href="@{/homepage}">About Us</a>
+                </button>
+            </li>
+
+        </ul>
+        <i class="ri-menu-line"></i>
+    </nav>
+</header>
+<form class="price-form" th:action="@{/admin/savePrice}" th:object="${price}" th:method="post">
+    <input hidden name="id" th:field="*{id}" th:value="${price.id}">
+
+    <div class="form-group">
+        <label for="duration">Duration</label>
+        <input type="text" class="form-control" id="duration" name="duration" th:field="*{duration}" th:value="${price.duration}">
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" id="price" name="price" th:field="*{price}" th:value="${price.price}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a th:href="@{/admin/price}" class="btn btn-secondary"><button type="button">Update</button></a>
+</form>
+
+
+
+
+
+</body>
+</html>

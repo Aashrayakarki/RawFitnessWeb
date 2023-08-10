@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{~/Css/assets/gss.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{~/Css/assets/gss-responsive.css}">
+    <script th:src="@{~/Js/timer.js}"></script>
+    <script th:src="@{~/Js/home.js}"></script>
+    <script th:src="@{https://kit.fontawesome.com/e3db4c63f8.js}" crossorigin="anonymous"></script>
+    <title>GG</title>
+</head>
+<body>
+  <img src="../Css/assets/pexels-estudio-polaroid-3112004.jpg" alt="" id="bgimg">
+  <header>
+      <nav >
+          <h2 class="logo" > <a href=""> Raw <span>Fitness</span></a></h2>
+          <ul >
+              <li>
+                  <button class="items">
+                      <a href="">Home</a>
+                  </button>
+              </li>
+              <li >
+                  <button class="items">
+                      <a href="#contacts">Contacts</a>
+                  </button>
+              </li>
+              <li>
+                  <button class="items">
+                      <a href="#package">Package&Plans</a>
+                  </button>
+              </li>
+              <li>
+                  <button class="items">
+                      <a href="#about">About Us</a>
+                  </button>
+              </li>
+          </ul>
+          <div class="rbtn">
+              <button type="button"  class="Register-btn">
+                  <a  th:href="@{/signup/list/}+${user.id}">Profile</a>
+              </button>
+
+          </div>
+          <div  class="rbtn">
+          <button type="button"  class="Register-btn">
+              <a  th:href="@{/logout}">Logout</a>
+          </button>
+
+      </div>
+          <i class="ri-menu-line"></i>
+      </nav>
+  </header>
+
+    <main>
+        <div class="clock">  
+        <div class="cc">
+            <div>
+                <p id="days">00</p>
+                <span>Days</span>
+            </div>
+            <div>
+                <p id="hours">00</p>
+                <span>Hours</span>
+            </div>
+            <div>
+                <p id="minutes">00</p>
+                <span>Minutes</span>
+            </div>
+            <div>
+                <p id="seconds">00</p>
+                <span>Seconds</span>
+            </div>
+        
+        </div>
+
+            <div class="NY">
+                   UNTIL NEXT YEAR
+               <span class="MC">MAKE IT COUNT!</span>
+            </div>
+        
+        </div>
+        <div id="package" class="programs">
+            <span class="program_span">Our Programs</span>
+                <div class="content">
+                <a th:href="@{/membership/}+${user.id}">
+                <div id="weightlifting" class="weightlifting">
+                    <img src="../Css/assets/pexels-victor-freitas-841130.jpg" alt="404" class="divimg" srcset="">
+                    <span>Weightlifting</span>
+                    <p>Learn and master the art 
+                        of lifting with professional trainers</p> 
+                </div>
+                </a>
+                    <a th:href="@{/membership/}+${user.id}">
+                <div id="boxing" class="boxing">
+                    <img src="../Css/assets/chris-kendall-sJ6az6-T1u8-unsplash.jpg" alt="" class="divimg" srcset="">
+                    <span>Boxing</span>
+                    <p>Step into the ring and unleash your inner fighter
+                        with our high-energy boxing classes.</p> 
+                </div>
+                </a>
+                    <a th:href="@{/membership/}+${user.id}">
+                <div id="calisthenics" class="calisthenics">
+                    <img src="../Css/assets/janapan_top.jfif" alt="" class="divimg" srcset="">
+                    <span>Calisthenics</span>
+                    <p>Unleash your inner athlete with Calisthenics! <br/>
+                        Get fit, build strength, and improve flexibility with bodyweight exercises.</p> 
+                </div>
+                </a>
+            </div>
+            </nav>
+        </div>
+
+       
+
+    </main>
+    <footer>
+        <div class="transformation">
+            <img src="../Css/assets/img1.jpg" alt="image not found" class="img">
+            <p>"Success isn't always about greatness. It's about consistency. Consistent, hard work gains success. Greatness will come." - Dwayne Johnson</p>
+        </div>
+        <div class="transformation">
+            <p>"You can have the best workout program, the best nutrition program, the best supplements, and the best training partners, but without the mental toughness to push yourself, you will never reach your full potential." - Kai Greene</p>
+            <img src="../Css/assets/img2.jpg" alt="image not found" class="img">
+        </div>
+        <div class="transformation">
+            <img src="../Css/assets/img3.jpg" alt="image not found" class="img">
+            <p>"Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle." - Christian Louboutin</p>
+        </div>
+        
+        
+
+        <div id="about" class="about">
+           <span>About Us</span> 
+           <p>Helping to build a stable life form with physical stability as well as mental stability. <br/>We provide you with the best equipment with the best instructors to help you get your dream body</p>
+        </div>
+        <div id="contact" class="top">
+                <span>Contact Us</span>
+                <p>Email : <a href="">Aashrayakarki7@gmail.com</a> </p>
+                <p>Phone : <a href="">9808750214</a></p>
+        </div>
+        <div class="bottom">
+            Copyright © <a href=""><span>Raw</span> Fitness</a> All Rights Reserved
+        </div>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link th:href="@{~/Css/assets/sign.css}" rel="stylesheet"/>
+</head>
+<body>
+   <div class="Container">
+    <div class="contents">
+        <form th:method="post" th:action="@{/signup/save}" th:object="${signup}" class="sign_form">
+            <div>
+                <h1 class="sign_title">
+                    Welcome
+                </h1>
+                <p class="signdesp">
+                    Join Us
+                </p>
+            </div>
+            <div> 
+                <div class="signinputs">
+                    <div>
+                        <label class="signlabel">Full Name</label>
+                        <input type="text" placeholder="Enter your Name" required class="sign-inputs" th:field="*{fullName}" th:value="${signup.fullName}">
+                    </div>
+                    <div>
+                        <label class="signlabel">Email</label>
+                        <input type="email" placeholder="Enter your Email" required class="sign-inputs" th:field="*{email}" th:value="${signup.email}">
+                    </div>
+                    <div>
+                        <label class="signlabel">Password</label>
+
+                        <div class="signbox ">
+                            <input type="password" placeholder="Enter your password" required class="sign-inputs" id="input-pass" th:field="*{password}" th:value="${signup.password}">
+                            <i class="ri-eye-off-line sign-eye" id="input-icon"></i>
+                        </div>
+                        <label class="signlabel">Confirm Password</label>
+
+                        <div class="signbox ">
+                            <input type="password" placeholder="Enter your password" required class="sign-inputs" id="input-pass">
+                            <i class="ri-eye-off-line sign-eye" id="input-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="sign_check">
+                    <a th:href="@{/login}" class="sign_check_label">Already have an account?</a>
+                </div>
+            </div>
+            <div>
+                <div class="sign_buttons">
+                    <button type="submit" class="sign-button signup">Signup</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+   </div>
+
+</body>
+</html>
